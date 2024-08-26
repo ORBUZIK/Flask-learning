@@ -1,0 +1,21 @@
+{% extends "tasks.html" %}
+
+{% block warning %}
+<div class="warning"><p>! Введите текст, чтобы сохранить задачу !</p></div>
+
+<style>
+.warning {
+    background-color: rgba(211, 23, 23, 0.362);
+    margin: 10px;
+    border-radius: 5px;
+    width: 80%;
+    height: 2.5em;
+    display: grid;
+    place-items: center;
+}
+
+.warning > p {
+    margin: 0;
+}
+</style>
+{% endblock %}

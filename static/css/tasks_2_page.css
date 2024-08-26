@@ -1,0 +1,76 @@
+/* * {
+    outline: 1px solid limegreen;
+} */
+
+
+.add_task {
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.add_task > * {
+    margin: 0;
+}
+
+.add_btn, .delete_btn {
+    height: 25px;
+    width: 25px;
+    border-radius: 10%;
+    padding: 0;
+    place-items: center;
+    display: grid;
+    border: none;
+    background-color: rgb(239, 239, 239);
+}
+
+.btn_img {
+    height: 17px;
+    width: auto;
+}
+
+.uncomplited_tasks, .complited_tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5em;
+}
+
+.task {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.task > * {
+    margin: 0;
+}
+
+.task_text {
+    background-color: rgba(248, 248, 248, 0.506);
+    border-radius: 5px;
+}
+
+.task_checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 0);
+    border: solid 1.5px rgb(63, 63, 63);
+    border-radius: 10%;
+    display: grid;
+    place-items: center;
+}
+
+.img_checked {
+    height: 15px;
+    width: auto;
+}
+
+.task > span {
+    height: 25px;
+    text-decoration: line-through;
+}

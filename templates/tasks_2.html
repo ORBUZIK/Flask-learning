@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block link %}
+{{ url_for('static', filename='css/tasks_2_page.css') }}
+{% endblock %}
+
+
+{% block title %}
+Task Page
+{% endblock %}
+
+{% block header %}
+<li class="nav-item"><a href="/" class="nav-link" aria-current="page">Tasks</a></li>
+<li class="nav-item"><a href="/tasks_2" class="nav-link active">Tasks 2</a></li>
+<!-- <li class="nav-item"><a href="/statistics" class="nav-link">Statistics</a></li> -->
+<!-- <li class="nav-item"><a href="/about" class="nav-link">About</a></li> -->
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>To-do List</h2>
+    <hr>
+
+    <form method="post" class="add_task">
+        <button type="submit" class="add_btn">
+            <img src="/static/img/add.png" class="btn_img" alt="">
+        </button>
+        <input type="text" class="task_input" name="task" placeholder="new task...">
+    </form>
+    
+    {% block warning %}{% endblock %}
+
+    <hr>
+    
+    <h4>To-do</h4>
+    <div class="uncomplited_tasks">
+        {% for task in tasks_list %}
+
+            {% if task.completed == 0 %}
+                <div class="task">
+                    <!-- <input type="checkbox" name="completed" id="" class=""> -->
+                    <a href="/update/{{ task.id }}" class="task_checkbox"></a>
+                    <!-- <div class="task_checkbox"></div> -->
+                    <p class="task_text">{{ task.task_text }}</p>
+                </div>
+            {% endif %}
+        
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h4>Completed</h4>
+    <div class="complited_tasks">
+        {% for task in tasks_list %}
+
+            {% if task.completed == 1 %}
+                <div class="task">
+                    <!-- <input type="checkbox" checked name="completed" id="" class="task_checkbox"> -->
+                    <a href="/update/{{ task.id }}" class="task_checkbox">
+                        <img src="static/img/check.png" alt="" class="img_checked">
+                    </a>
+                    <span class="text_checked">
+                        <p class="task_text">{{ task.task_text }}</p>
+                    </span>
+                </div>
+            {% endif %}
+        
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

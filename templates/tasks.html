@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block link %}
+{{ url_for('static', filename='css/tasks_page.css') }}
+{% endblock %}
+
+
+{% block title %}
+Task Page
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>FUCK YOU</h2>
+    <hr>
+
+    <form method="post" class="add_task">
+        <button type="submit" class="add_btn">
+            <img src="/static/img/add.png" class="btn_img" alt="">
+        </button>
+        <input type="text" class="task_input" name="task" placeholder="new task...">
+    </form>
+    
+    {% block warning %}{% endblock %}
+
+    <hr>
+
+    <div class="tasks">
+        {% for task in tasks_list %}
+        <div class="task">
+            <input type="checkbox" name="completed" id="" class="task_checkbox">
+            <p class="task_text">{{ task.task_text }}</p>
+            <!-- <button type="submit" class="delete_btn">
+            </button> -->
+            <a href="/delete/{{ task.id }}" class="delete_btn">
+                <img src="/static/img/bin.png" class="btn_img" alt="">
+            </a>
+
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock %}
